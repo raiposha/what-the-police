@@ -54,7 +54,7 @@ new Vue({
 	...App,
 	created () {
     firebase.initializeApp({
-    apiKey: "AIzaSyDbSgPNSAXoYgzpFqXru-biEU08mVw3xAc",
+    apiKey: "[YOUR_API_KEY]",
     authDomain: "policestationapp.firebaseapp.com",
     databaseURL: "https://policestationapp.firebaseio.com",
     projectId: "policestationapp",
