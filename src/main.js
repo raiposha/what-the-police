@@ -31,6 +31,7 @@ import AddPlace from './components/Places/Addplace.vue'
 
 
 
+
 Vue.component('app-alert', AlertCmp)
 Vue.component('app-signin', SignIn)
 Vue.component('app-signup', SignUp)
