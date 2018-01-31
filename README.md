@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+Demo: https://policestationapp.firebaseapp.com/
+
 ## Build Setup
 
 ``` bash

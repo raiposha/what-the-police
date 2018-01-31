@@ -15,7 +15,6 @@ import router from './router/'
 import store from './store'
 
 import './plugins/'
-import './style.css'
 
 // Components //
 
@@ -28,6 +27,7 @@ import AddPlace from './components/Places/Addplace.vue'
 
 // import Googlemap from './components/Googlemap.vue'
 // Vue.component('google-map', Googlemap)
+
 
 
 
@@ -55,7 +55,7 @@ new Vue({
 	...App,
 	created () {
     firebase.initializeApp({
-    apiKey: "AIzaSyDbSgPNSAXoYgzpFqXru-biEU08mVw3xAc",
+    apiKey: "[YOUR_API_KEY]",
     authDomain: "policestationapp.firebaseapp.com",
     databaseURL: "https://policestationapp.firebaseio.com",
     projectId: "policestationapp",
