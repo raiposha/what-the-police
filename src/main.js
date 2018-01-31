@@ -15,6 +15,7 @@ import router from './router/'
 import store from './store'
 
 import './plugins/'
+import './style.css'
 
 // Components //
 
