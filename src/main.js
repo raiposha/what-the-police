@@ -15,6 +15,7 @@ import router from './router/'
 import store from './store'
 
 import './plugins/'
+import './style.css'
 
 // Components //
 
@@ -55,7 +56,7 @@ new Vue({
 	...App,
 	created () {
     firebase.initializeApp({
-    apiKey: "[YOUR_API_KEY]",
+    apiKey: "AIzaSyDbSgPNSAXoYgzpFqXru-biEU08mVw3xAc",
     authDomain: "policestationapp.firebaseapp.com",
     databaseURL: "https://policestationapp.firebaseio.com",
     projectId: "policestationapp",
