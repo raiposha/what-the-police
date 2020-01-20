@@ -1,27 +1,30 @@
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-// Views //
-import About from '../components/Views/About.vue'
-import Home from '../components/Home.vue'
+import About from "@/views/About.vue";
+import Home from "@/views/Home.vue";
+
+Vue.use(VueRouter);
+// const About = () => import(/* webpackChunkName: "about" */ "@/views/About.vue");
+// const Home = () => import(/* webpackChunkName: "home" */ "@/views/Home.vue");
+
+const routes = [
+  {
+    path: "/",
+    name: "home",
+    component: Home
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About
+  }
+];
 
 const router = new VueRouter({
-	mode: 'history',
-	routes: [
-		{
-			path: '/',
-			name: 'Home',
-			component: Home
-		},
-		{
-			path: '/about',
-			name: 'About',
-			component: About
-		}
-	],
-})
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes
+});
 
-// router.afterEach(() => {
-// 	store.dispatch('layout/setSideNavOpen', false)
-// })
-
-export default router
+export default router;

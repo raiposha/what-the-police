@@ -1,30 +1,30 @@
 export default {
-	namespaced: true,
+  namespaced: true,
 
-	state () {
-		return {
-			sideNavOpen: false,
-		}
-	},
+  state() {
+    return {
+      sideNavOpen: false
+    };
+  },
 
-	getters: {
-		sideNavOpen: state => state.sideNavOpen,
-	},
+  getters: {
+    sideNavOpen: state => state.sideNavOpen
+  },
 
-	mutations: {
-		sideNavOpen (state, value) {
-			state.sideNavOpen = value
-		},
-	},
+  mutations: {
+    sideNavOpen(state, value) {
+      state.sideNavOpen = value;
+    }
+  },
 
-	actions: {
-		setSideNavOpen ({ commit }, value) {
-			commit('sideNavOpen', value)
-		},
+  actions: {
+    setSideNavOpen({ commit }, value) {
+      commit("sideNavOpen", value);
+    },
 
-		toggleSideNav ({ commit, getters }) {
-			const value = getters.sideNavOpen
-			commit('sideNavOpen', !value)
-		},
-	}
-}
+    toggleSideNav({ commit, getters }) {
+      const value = getters.sideNavOpen;
+      commit("sideNavOpen", !value);
+    }
+  }
+};
