@@ -3,28 +3,21 @@
     <!-- Navigation Drawer -->
     <v-navigation-drawer fixed v-model="sideNav" temporary>
       <v-list>
-        <v-list-tile v-if="!userIsAuthenticated"
-          ><app-signup></app-signup
-        ></v-list-tile>
-        <v-list-tile v-if="!userIsAuthenticated"
-          ><app-signin></app-signin
-        ></v-list-tile>
+        <v-list-item v-if="!userIsAuthenticated"><app-signup /></v-list-item>
+        <v-list-item v-if="!userIsAuthenticated"><app-signin /></v-list-item>
 
-        <v-list-tile>
-          <v-btn flat v-if="userIsAuthenticated" @click="onLogout">
+        <v-list-item>
+          <v-btn text v-if="userIsAuthenticated" @click="onLogout">
             <v-icon left dark>exit_to_app</v-icon>
             Logout
           </v-btn>
-        </v-list-tile>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <!-- Toolbar -->
     <v-toolbar dark class="primary" :height="50">
-      <v-toolbar-side-icon
-        @click.stop="sideNav = !sideNav"
-        class="hidden-sm-and-up"
-      ></v-toolbar-side-icon>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>
         <router-link
@@ -42,7 +35,7 @@
         <app-signup v-if="!userIsAuthenticated"></app-signup>
         <app-signin v-if="!userIsAuthenticated"></app-signin>
 
-        <v-btn flat v-if="userIsAuthenticated" @click="onLogout">
+        <v-btn text v-if="userIsAuthenticated" @click="onLogout">
           <v-icon left dark>exit_to_app</v-icon>
           Logout
         </v-btn>
@@ -52,7 +45,7 @@
     <v-layout row>
       <v-flex xs12>
         <v-card>
-          <v-card-media
+          <v-img
             src="http://www.publicdomainpictures.net/pictures/10000/velka/sunset-over-mountains-11284647453ZOV5.jpg"
             height="300px"
             xs12
@@ -73,7 +66,7 @@
                 </v-flex>
               </v-card-title>
             </v-layout>
-          </v-card-media>
+          </v-img>
           <v-card-text>
             <v-flex xs8 offset-xs2>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
@@ -87,10 +80,10 @@
           <v-card-actions>
             <v-flex xs8 offset-xs2>
               <v-btn fab dark color="primary">
-                <font-awesome-icon :icon="['fab', 'vk']" size="2x" />
+                <v-icon>fab fa-vk</v-icon>
               </v-btn>
               <v-btn fab dark color="primary">
-                <font-awesome-icon :icon="['fab', 'twitter']" size="2x" />
+                <v-icon>fab fa-twitter</v-icon>
               </v-btn>
             </v-flex>
           </v-card-actions>
@@ -100,17 +93,13 @@
 
     <v-footer class="pa-3">
       <v-layout row>
-        <v-btn flat color="primary">
-          <v-icon left dark>mail</v-icon>
+        <v-btn text color="primary">
+          <v-icon left dark>fas fa-envelope</v-icon>
           raipon@yandex.ru
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn flat color="primary">
-          <font-awesome-icon
-            :icon="['far', 'copyright']"
-            size="lg"
-            pull="left"
-          />
+        <v-btn text color="primary">
+          <v-icon>far fa-copyright</v-icon>
           Raipon {{ new Date().getFullYear() }}
         </v-btn>
       </v-layout>

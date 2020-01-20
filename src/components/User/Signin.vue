@@ -1,27 +1,28 @@
 <template>
   <v-dialog disebled v-model="signinDialog" max-width="500">
-    <v-btn flat slot="activator">
-      <v-icon left dark>lock_open</v-icon>
-      Sign In
-    </v-btn>
+    <template #activator="{ on }">
+      <v-btn text v-on="on">
+        <v-icon left dark>fas fa-lock-open</v-icon>
+        Sign In
+      </v-btn>
+    </template>
     <v-card>
       <v-flex xs12 v-if="error">
         <app-alert @dismissed="onDismissed" :text="error.message"> </app-alert>
       </v-flex>
-      <v-flex class="text-xs-right" xs12>
-        <v-btn fab outline error @click="signinDialog = false">
-          <v-icon>close</v-icon>
+      <v-flex class="d-flex justify-end" xs12>
+        <v-btn fab outlined error @click="signinDialog = false">
+          <v-icon>fas fa-times</v-icon>
         </v-btn>
       </v-flex>
-      <v-card-media contain src="/static/user.svg" height="150px">
-      </v-card-media>
+      <v-img contain src="@/assets/img/user.svg" height="150px"> </v-img>
       <v-card-text>
         <v-container>
           <form @submit.prevent="onSignin">
             <v-layout row>
               <v-flex xs12>
                 <v-text-field
-                  prepend-icon="mail"
+                  prepend-icon="fas fa-envelope"
                   name="email"
                   label="Mail"
                   v-model="email"
@@ -33,7 +34,7 @@
             <v-layout row>
               <v-flex xs12>
                 <v-text-field
-                  prepend-icon="lock"
+                  prepend-icon="fas fa-lock"
                   name="password"
                   label="Enter your password"
                   v-model="password"
@@ -47,7 +48,7 @@
                 <v-btn
                   success
                   block
-                  outline
+                  outlined
                   type="submit"
                   :disabled="loading"
                   :loading="loading"

@@ -1,8 +1,8 @@
 {
   "name": "what-the-police",
   "version": "0.1.0",
-  "author": "raiposha",
   "private": true,
+  "author": "raiposha",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -41,6 +41,7 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "^2.0.3",
     "vue-template-compiler": "^2.6.10"
   }
 }

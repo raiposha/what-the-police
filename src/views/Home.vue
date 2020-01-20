@@ -3,51 +3,40 @@
     <!-- Navigation Drawer -->
     <v-navigation-drawer fixed v-model="sideNav" temporary>
       <v-list>
-        <v-list-tile v-if="!userIsAuthenticated"
-          ><app-signup></app-signup
-        ></v-list-tile>
-        <v-list-tile v-if="!userIsAuthenticated"
-          ><app-signin></app-signin
-        ></v-list-tile>
-        <v-list-tile v-if="userIsAuthenticated">
+        <v-list-item v-if="!userIsAuthenticated"><app-signup /></v-list-item>
+        <v-list-item v-if="!userIsAuthenticated"><app-signin /></v-list-item>
+        <v-list-item v-if="userIsAuthenticated">
           <app-add-place
             v-if="userIsAuthenticated"
             :location="searchLocation"
           ></app-add-place>
-        </v-list-tile>
-        <v-list-tile>
-          <v-btn flat :disabled="!userPosition" @click="setUserPosition">
-            <v-icon left dark>gps_fixed</v-icon>
+        </v-list-item>
+        <v-list-item>
+          <v-btn text :disabled="!userPosition" @click="setUserPosition">
+            <v-icon left dark>fas fa-location-arrow</v-icon>
             My position
           </v-btn>
-        </v-list-tile>
+        </v-list-item>
 
-        <v-list-tile>
-          <v-btn flat to="/about">
-            <font-awesome-icon
-              :icon="['far', 'hand-peace']"
-              size="2x"
-              pull="left"
-            />
+        <v-list-item>
+          <v-btn text to="/about">
+            <v-icon :icon="['far', 'hand-peace']" size="2x" pull="left" />
             About us
           </v-btn>
-        </v-list-tile>
+        </v-list-item>
 
-        <v-list-tile>
-          <v-btn flat v-if="userIsAuthenticated" @click="onLogout">
+        <v-list-item>
+          <v-btn text v-if="userIsAuthenticated" @click="onLogout">
             <v-icon left dark>exit_to_app</v-icon>
             Logout
           </v-btn>
-        </v-list-tile>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <!-- Toolbar -->
     <v-toolbar dark class="primary" :height="50">
-      <v-toolbar-side-icon
-        @click.stop="sideNav = !sideNav"
-        class="hidden-md-and-up"
-      ></v-toolbar-side-icon>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>
         <router-link
@@ -69,20 +58,16 @@
         <app-signup v-if="!userIsAuthenticated"></app-signup>
         <app-signin v-if="!userIsAuthenticated"></app-signin>
 
-        <v-btn flat :disabled="!userPosition" @click="setUserPosition">
-          <v-icon dark>gps_fixed</v-icon>
+        <v-btn text :disabled="!userPosition" @click="setUserPosition">
+          <v-icon dark>fas fa-location-arrow</v-icon>
         </v-btn>
 
-        <v-btn flat to="/about">
-          <font-awesome-icon
-            :icon="['far', 'hand-peace']"
-            size="2x"
-            pull="left"
-          />
+        <v-btn text to="/about">
+          <v-icon>far fa-hand-peace</v-icon>
           About us
         </v-btn>
 
-        <v-btn flat v-if="userIsAuthenticated" @click="onLogout">
+        <v-btn text v-if="userIsAuthenticated" @click="onLogout">
           <v-icon left dark>exit_to_app</v-icon>
           Logout
         </v-btn>
@@ -147,7 +132,7 @@ export default {
       sideNav: false,
       searchLocation: null,
       markerImage: {
-        url: "../static/policeMarker.svg",
+        url: "@/assets/img/policeMarker.svg",
         scaledSize: {
           width: 40,
           height: 40,
@@ -156,7 +141,7 @@ export default {
         }
       },
       dafaultMarkerImage: {
-        url: "../static/defaultMarker.svg",
+        url: "@/assets/img/defaultMarker.svg",
         scaledSize: {
           width: 40,
           height: 40,
@@ -165,7 +150,7 @@ export default {
         }
       },
       mySelfImage: {
-        url: "../static/person.svg",
+        url: "@/assets/img/person.svg",
         scaledSize: {
           width: 23,
           height: 37,

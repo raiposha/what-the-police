@@ -1,15 +1,17 @@
 <template>
   <v-dialog v-model="AddplaceDialog" max-width="500">
-    <v-btn flat slot="activator">
-      <v-icon left dark>add_location</v-icon>
-      Add place
-    </v-btn>
+    <template #activator="{ on }">
+      <v-btn text v-on="on">
+        <v-icon left dark>add_location</v-icon>
+        Add place
+      </v-btn>
+    </template>
     <v-card>
       <v-flex xs12 v-if="error">
         <app-alert @dismissed="onDismissed" :text="error.message"> </app-alert>
       </v-flex>
       <v-flex class="text-xs-right" xs12>
-        <v-btn fab outline error @click="AddplaceDialog = false">
+        <v-btn fab outlined error @click="AddplaceDialog = false">
           <v-icon>close</v-icon>
         </v-btn>
       </v-flex>
@@ -57,7 +59,7 @@
                 <v-btn
                   success
                   block
-                  outline
+                  outlined
                   type="submit"
                   :disabled="!formIsValid"
                 >

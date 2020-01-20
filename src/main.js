@@ -9,35 +9,16 @@ Vue.config.productionTip = false;
 import * as firebase from "firebase";
 // import firebase from "firebase/app";
 
-import * as FontAwesomeIcon from "@fortawesome/vue-fontawesome";
-Vue.component("font-awesome-icon", FontAwesomeIcon);
-
 import * as VueGoogleMaps from "vue2-google-maps";
 Vue.use(VueGoogleMaps, {
   load: {
-    apiKey: "AIzaSyDdZQS9E0sA6Y-lgbbIdyB8FcA8T2cqAkE",
+    apiKey: "AIzaSyAxfxTSuYpxSbonaIIFE0HmAS7XiDOiIxA",
     libraries: "places"
   }
 });
 Vue.component("google-cluster", VueGoogleMaps.Cluster);
 
-import Vuetify from "vuetify";
-import "vuetify/dist/vuetify.css";
-Vue.use(Vuetify, {
-  theme: {
-    primary: "#3f99ce",
-    secondary: "#bdbdbd",
-    accent: "#FF5252",
-    error: "#D50000",
-    info: "#42A5F5",
-    success: "#81C784",
-    warning: "#ffa000"
-  }
-});
-
-// import "./importScripts.js";
-
-// Components //
+import vuetify from "./plugins/vuetify";
 
 import AlertCmp from "./components/Shared/Alert.vue";
 import SignIn from "./components/User/Signin.vue";
@@ -53,6 +34,8 @@ new Vue({
   router,
   store,
   render: h => h(App),
+  vuetify,
+
   created() {
     firebase.initializeApp({
       apiKey: "AIzaSyDbSgPNSAXoYgzpFqXru-biEU08mVw3xAc",
